@@ -69,6 +69,13 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+        //stops movement when in dialogue
+        if (Dialog_manager.isActive == true)
+        {
+            moveSpeed = 0f;
+            return;
+        }
+
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 

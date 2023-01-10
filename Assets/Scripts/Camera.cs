@@ -17,8 +17,8 @@ public class Camera : MonoBehaviour
     void Start()
     {
         //locks cursor and makes it invisable
-        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame

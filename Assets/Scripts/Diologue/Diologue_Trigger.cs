@@ -6,6 +6,11 @@ public class Diologue_Trigger : MonoBehaviour
 {
     public Message[] messages;
     public Actor[] actors;
+
+    public void StartDialogue()
+    {
+        FindObjectOfType<Dialog_manager>().OpenDialogue(messages, actors);
+    }
 }
 
 
