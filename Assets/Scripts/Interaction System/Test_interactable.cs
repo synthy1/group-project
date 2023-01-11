@@ -6,7 +6,7 @@ public class Test_interactable : Interactable
 {
     public override void OnFocus()
     {
-        Debug.Log("looking at" + gameObject.name);
+        //Debug.Log("looking at" + gameObject.name);
     }
 
     public override void OnInteract()
@@ -16,7 +16,7 @@ public class Test_interactable : Interactable
 
     public override void OnLoseFocus()
     {
-        Debug.Log("stoped looking at" + gameObject.name);
+        //Debug.Log("stoped looking at" + gameObject.name);
     }
 
 }

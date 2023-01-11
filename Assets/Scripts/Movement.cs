@@ -214,9 +214,13 @@ public class Movement : MonoBehaviour
 
     private void HandleInteractionCheck()
     {
-        if (Physics.Raycast(playerCam.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance))
+        Ray myRay = playerCam.ViewportPointToRay(interactionRayPoint);
+
+        Debug.DrawRay(myRay.origin, myRay.direction, Color.red);
+
+        if (Physics.Raycast(myRay, out RaycastHit hit, interactionDistance))
         {
-            if(hit.collider.gameObject.layer == 9 && (currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
+            if(hit.collider.gameObject.layer == 6 && (currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
             {
                 hit.collider.TryGetComponent(out currentInteractable);
 
