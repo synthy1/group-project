@@ -23,9 +23,18 @@ public class Movement : MonoBehaviour
     public float crouchYScale;
     private float startYScale;
 
+    [Header("Interaction")]
+    [SerializeField] private bool canInteract = true;
+    [SerializeField] private Vector3 interactionRayPoint = default;
+    [SerializeField] private float interactionDistance = default;
+    [SerializeField] private LayerMask interationLayer = default;
+    private Interactable currentInteractable;
+
+
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode crouchKey = KeyCode.LeftControl;
+    public KeyCode interact = KeyCode.E;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -38,6 +47,7 @@ public class Movement : MonoBehaviour
     private bool exitingSlope;
 
 
+    public Camera playerCam;
     public Transform orientation;
 
     float horizontalInput;
@@ -61,7 +71,6 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-
         readyToJump = true;
 
         startYScale = transform.localScale.y;
@@ -76,6 +85,13 @@ public class Movement : MonoBehaviour
             return;
         }
 
+
+        if (canInteract)
+        {
+            //interaction method
+            HandleInteractionCheck();
+            HandleInteractionInput();
+        }
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
@@ -196,6 +212,36 @@ public class Movement : MonoBehaviour
         }
     }
 
+    private void HandleInteractionCheck()
+    {
+        if (Physics.Raycast(playerCam.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance))
+        {
+            if(hit.collider.gameObject.layer == 9 && (currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
+            {
+                hit.collider.TryGetComponent(out currentInteractable);
+
+                if (currentInteractable)
+                {
+                    currentInteractable.OnFocus();
+                }
+            }
+        }
+        else if (currentInteractable)
+        {
+            currentInteractable.OnLoseFocus();
+            currentInteractable = null;
+        }
+    }
+
+    private void HandleInteractionInput()
+    {
+        if (Input.GetKeyDown(interact) && currentInteractable != null && Physics.Raycast(playerCam.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance, interationLayer))
+        {
+            //raycast
+            currentInteractable.OnInteract();
+        }
+    }
+
     private void Jump()
     {
         exitingSlope = true;
@@ -222,6 +268,8 @@ public class Movement : MonoBehaviour
 
         return false;
     }
+
+
 
     public Vector3 GetSlopeMoveDirection(Vector3 direction)
     {
