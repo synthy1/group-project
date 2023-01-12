@@ -11,7 +11,6 @@ public class NPC : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") == true)
         {
             trigger.StartDialogue();
-            Debug.Log("iteract");
         }
 
     }
