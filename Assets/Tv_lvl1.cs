@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Tv_lvl1 : Interactable
+{
+    Movement lvlBool;
+    public GameObject player;
+    public GameObject tpLocation;
+
+    private void Start()
+    {
+    lvlBool = player.GetComponent<Movement>();
+    }
+    public override void OnFocus()
+    {
+
+    }
+
+    public override void OnInteract()
+    {
+        player.transform.position = tpLocation.transform.position;  
+    }
+
+    public override void OnLoseFocus()
+    {
+
+    }
+
+}

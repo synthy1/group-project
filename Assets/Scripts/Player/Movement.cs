@@ -46,6 +46,10 @@ public class Movement : MonoBehaviour
     private RaycastHit slopeHit;
     private bool exitingSlope;
 
+    [Header("Level bools")]
+    [SerializeField] public bool lvl1Cmp = false;
+    [SerializeField] public bool lvl2Cmp = false;
+    [SerializeField] public bool lvl3Cmp = false;
 
     public Camera playerCam;
     public Transform orientation;
