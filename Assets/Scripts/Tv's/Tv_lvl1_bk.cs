@@ -22,6 +22,7 @@ public class Tv_lvl1_bk : Interactable
         if (lvlBool.lvl1Cmp == true)
         {
             player.transform.position = tpLocation.transform.position;
+            player.transform.rotation = tpLocation.transform.rotation;
         }
     }
 

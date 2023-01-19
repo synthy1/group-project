@@ -10,7 +10,10 @@ public class Lvl1_Collectable : Interactable
     public GameObject PH_2;
     public GameObject rats;
     public GameObject walls;
+    public GameObject ambSounds;
+    public GameObject endTrigger;
     MeshRenderer[] meshes;
+    AudioSource[] ambient;
     public Material eyes;
     private void Start()
     {
@@ -24,14 +27,20 @@ public class Lvl1_Collectable : Interactable
     public override void OnInteract()
     {
         meshes = walls.GetComponentsInChildren<MeshRenderer>();
+        ambient = ambSounds.GetComponentsInChildren<AudioSource>();
 
         foreach(MeshRenderer mesh in meshes)
         {
             mesh.material = eyes;
         }
+        foreach (AudioSource audio in ambient)
+        {
+            audio.enabled = true;
+        }
         rats.SetActive(false);
         Destroy(gameObject);
         player.lvl1Cmp = true;
+        endTrigger.GetComponent<BoxCollider>().enabled = true;
         PH_1.SetActive(false);
         PH_2.SetActive(true);
     }

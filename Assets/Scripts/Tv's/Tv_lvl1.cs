@@ -20,7 +20,10 @@ public class Tv_lvl1 : Interactable
     public override void OnInteract()
     {
         if (lvlBool.lvl1Cmp == false)
-            player.transform.position = tpLocation.transform.position;  
+        {
+            player.transform.position = tpLocation.transform.position;
+            player.transform.rotation = tpLocation.transform.rotation;
+        }
     }
 
     public override void OnLoseFocus()

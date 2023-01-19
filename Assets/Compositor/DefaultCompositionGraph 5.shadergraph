@@ -1,10 +1,13 @@
 {
-    "m_SGVersion": 3,
+    "m_SGVersion": 2,
     "m_Type": "UnityEditor.ShaderGraph.GraphData",
     "m_ObjectId": "73aae3f5564a4b2f8b357d072f596dc8",
     "m_Properties": [
         {
             "m_Id": "34fd04270ffe4218b78ec0efb3cc7e5e"
+        },
+        {
+            "m_Id": "75b3165f62b2426da6892198cb23fddb"
         }
     ],
     "m_Keywords": [],
@@ -107,7 +110,7 @@
         }
     },
     "m_Path": "Shader Graphs",
-    "m_GraphPrecision": 1,
+    "m_ConcretePrecision": 0,
     "m_PreviewMode": 2,
     "m_OutputNode": {
         "m_Id": ""
@@ -170,10 +173,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -406.4000244140625,
-            "y": 200.0,
-            "width": 184.80001831054688,
-            "height": 250.8000030517578
+            "x": -426.9999694824219,
+            "y": 119.00001525878906,
+            "width": 184.0,
+            "height": 253.0
         }
     },
     "m_Slots": [
@@ -269,8 +272,6 @@
         "m_GuidSerialized": "f66d9f0a-48cb-4a1f-bd35-a289c86769ef"
     },
     "m_Name": "BaseLayer",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "BaseLayer",
     "m_DefaultReferenceName": "BaseLayer",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
@@ -411,6 +412,29 @@
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.Rendering.HighDefinition.ShaderGraph.HDUnlitSubTarget",
     "m_ObjectId": "70567a30da5e4c2a9cab58218bd191ee"
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
+    "m_ObjectId": "75b3165f62b2426da6892198cb23fddb",
+    "m_Guid": {
+        "m_GuidSerialized": "072e9bf6-cd35-46a4-8de3-ba978eaed52e"
+    },
+    "m_Name": "Layer",
+    "m_DefaultReferenceName": "Texture2D_75b3165f62b2426da6892198cb23fddb",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
+        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_Guid": ""
+    },
+    "m_Modifiable": true,
+    "m_DefaultType": 0
 }
 
 {
@@ -627,10 +651,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -714.0,
-            "y": 241.20001220703126,
-            "width": 137.99998474121095,
-            "height": 33.999996185302737
+            "x": -808.0,
+            "y": 119.00003051757813,
+            "width": 138.0,
+            "height": 34.0
         }
     },
     "m_Slots": [
