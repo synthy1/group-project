@@ -8,7 +8,7 @@ public class NPC : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Player") == true)
+        if (collision.gameObject.tag == "Player")
         {
             trigger.StartDialogue();
         }
