@@ -48,8 +48,12 @@ public class Movement : MonoBehaviour
 
     [Header("Level bools")]
     [SerializeField] public bool lvl1Cmp = false;
+    [SerializeField] public bool lvl1Col = false;
     [SerializeField] public bool lvl2Cmp = false;
+    [SerializeField] public bool lvl2Col = false;
     [SerializeField] public bool lvl3Cmp = false;
+    [SerializeField] public bool lvl3Col = false;
+    [SerializeField] public bool inLobby = true;
 
     public Camera playerCam;
     public Transform orientation;

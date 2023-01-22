@@ -9,8 +9,8 @@ public class Lvl2_Collectable : Interactable
     public GameObject LI_1;
     public GameObject LI_2;
     public GameObject birds;
+    public GameObject lvl2Trigger;
     public GameObject ambSounds;
-    public GameObject endTrigger;
     AudioSource[] ambient;
     private void Start()
     {
@@ -27,11 +27,11 @@ public class Lvl2_Collectable : Interactable
 
         foreach (AudioSource audio in ambient)
         {
-            audio.enabled = true;
+            audio.enabled = false;
         }
         Destroy(gameObject);
-        player.lvl1Cmp = true;
-        endTrigger.GetComponent<BoxCollider>().enabled = true;
+        lvl2Trigger.GetComponent<BoxCollider>().enabled = true;
+        player.lvl2Col = true;
         LI_1.SetActive(false);
         LI_2.SetActive(true);
         birds.SetActive(false);

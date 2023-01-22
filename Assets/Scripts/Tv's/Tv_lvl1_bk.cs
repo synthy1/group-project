@@ -10,7 +10,7 @@ public class Tv_lvl1_bk : Interactable
 
     private void Start()
     {
-    lvlBool = player.GetComponent<Movement>();
+        lvlBool = player.GetComponent<Movement>();
     }
     public override void OnFocus()
     {
@@ -19,10 +19,12 @@ public class Tv_lvl1_bk : Interactable
 
     public override void OnInteract()
     {
-        if (lvlBool.lvl1Cmp == true)
+        if (lvlBool.lvl1Col == true)
         {
             player.transform.position = tpLocation.transform.position;
             player.transform.rotation = tpLocation.transform.rotation;
+            lvlBool.lvl1Cmp = true;
+            lvlBool.inLobby = true;
         }
     }
 

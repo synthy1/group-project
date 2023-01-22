@@ -23,6 +23,7 @@ public class Tv_lvl2 : Interactable
         {
             player.transform.position = tpLocation.transform.position;
             player.transform.rotation = tpLocation.transform.rotation;
+            lvlBool.inLobby = false;
         }
     }
 

@@ -39,7 +39,7 @@ public class Lvl1_Collectable : Interactable
         }
         rats.SetActive(false);
         Destroy(gameObject);
-        player.lvl1Cmp = true;
+        player.lvl1Col = true;
         endTrigger.GetComponent<BoxCollider>().enabled = true;
         PH_1.SetActive(false);
         PH_2.SetActive(true);
