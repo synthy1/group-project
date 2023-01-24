@@ -9,19 +9,23 @@ public class Dialog_manager : MonoBehaviour
     public Image actorImage;
     public Text actorName;
     public Text messageText;
+    public AudioSource npc;
     public RectTransform backgroundBox;
 
     [Header("Arrays")]
     //arrays storing the current speaking actors and messages said
     Message[] currentMessages;
     Actor[] currentActors;
+    Audio[] currentAudio;
     int activeMessage = 0;
+    int activeAudio = 0;
     public static bool isActive = false;
     
-    public void OpenDialogue(Message[] messages, Actor[] actors)
+    public void OpenDialogue(Message[] messages, Actor[] actors , Audio[] audios)
     {
         currentMessages = messages;
         currentActors = actors;
+        currentAudio = audios;
         activeMessage = 0;
         isActive = true;
 
@@ -43,14 +47,23 @@ public class Dialog_manager : MonoBehaviour
         AnimateTextColor();
     }
 
+    private void PlayAudio()
+    {
+
+        Audio audioToPlay = currentAudio[activeAudio];
+        npc.clip = audioToPlay.diologue;
+    }
+
     //calls next message in array
     public void NextMessage()
     {
         activeMessage++;
+        activeAudio++;
         //making sure not going outside of the array
         if (activeMessage < currentMessages.Length)
         {
             DisplayMessage();
+            PlayAudio();
         }
         else
         {
@@ -75,7 +88,7 @@ public class Dialog_manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isActive == true)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && isActive == true)
         {
             NextMessage();
         }

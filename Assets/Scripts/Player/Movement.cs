@@ -54,6 +54,7 @@ public class Movement : MonoBehaviour
     [SerializeField] public bool lvl3Cmp = false;
     [SerializeField] public bool lvl3Col = false;
     [SerializeField] public bool inLobby = true;
+    [SerializeField] public bool readControls = false;
 
     public Camera playerCam;
     public Transform orientation;

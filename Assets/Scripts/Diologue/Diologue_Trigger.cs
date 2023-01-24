@@ -6,10 +6,11 @@ public class Diologue_Trigger : MonoBehaviour
 {
     public Message[] messages;
     public Actor[] actors;
+    public Audio[] audios;
 
     public void StartDialogue()
     {
-        FindObjectOfType<Dialog_manager>().OpenDialogue(messages, actors);
+        FindObjectOfType<Dialog_manager>().OpenDialogue(messages, actors , audios);
     }
 }
 
@@ -27,5 +28,11 @@ public class Diologue_Trigger : MonoBehaviour
     {
         public string name;
         public Sprite sprite;
+    }
+
+    [System.Serializable]
+    public class Audio
+    {
+        public AudioClip diologue;
     }
 
