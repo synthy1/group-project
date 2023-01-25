@@ -27,8 +27,10 @@ public class Dialog_manager : MonoBehaviour
         currentActors = actors;
         currentAudio = audios;
         activeMessage = 0;
+        activeAudio = 0;
         isActive = true;
 
+        npc.enabled = true;
         DisplayMessage();
         backgroundBox.LeanScale(Vector3.one, 0.5f).setEaseInOutExpo();
     }
@@ -44,30 +46,27 @@ public class Dialog_manager : MonoBehaviour
         actorName.text = actorToDisplay.name;
         actorImage.sprite = actorToDisplay.sprite;
 
+        //send correct audio to audio source
+        Audio audioToPlay = currentAudio[activeAudio];
+        npc.PlayOneShot(audioToPlay.diologue);
+
         AnimateTextColor();
     }
 
-    private void PlayAudio()
-    {
-
-        Audio audioToPlay = currentAudio[activeAudio];
-        npc.clip = audioToPlay.diologue;
-    }
 
     //calls next message in array
     public void NextMessage()
     {
         activeMessage++;
         activeAudio++;
-        //making sure not going outside of the array
         if (activeMessage < currentMessages.Length)
         {
             DisplayMessage();
-            PlayAudio();
         }
         else
         {
             backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
+            npc.enabled = false;
             isActive = false;
         }
     }

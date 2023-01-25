@@ -10,7 +10,7 @@ public class Diologue_Trigger : MonoBehaviour
 
     public void StartDialogue()
     {
-        FindObjectOfType<Dialog_manager>().OpenDialogue(messages, actors , audios);
+        FindObjectOfType<Dialog_manager>().OpenDialogue(messages, actors, audios);
     }
 }
 

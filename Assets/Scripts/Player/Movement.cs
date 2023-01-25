@@ -225,7 +225,6 @@ public class Movement : MonoBehaviour
     {
         Ray myRay = playerCam.ViewportPointToRay(interactionRayPoint);
 
-        Debug.DrawRay(myRay.origin, myRay.direction, Color.red);
 
         if (Physics.Raycast(myRay, out RaycastHit hit, interactionDistance))
         {
