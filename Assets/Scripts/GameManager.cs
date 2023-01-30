@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
         lvl2.SetActive(false);
         lvl3.SetActive(false);
         lvl4.SetActive(false);
+        playerCmp.jumpForce = 14f;
     }
 
     // Update is called once per frame
@@ -34,12 +35,14 @@ public class GameManager : MonoBehaviour
 
             Destroy(lvl2);
             lvl3.SetActive(true);
+            playerCmp.jumpForce = 20f;
         }
         if (playerCmp.lvl3Cmp == true && playerCmp.inLobby == false)
         {
 
             Destroy(lvl3);
             lvl4.SetActive(true);
+            playerCmp.jumpForce = 14f;
 
         }
 
