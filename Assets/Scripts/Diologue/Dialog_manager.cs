@@ -57,6 +57,7 @@ public class Dialog_manager : MonoBehaviour
     //calls next message in array
     public void NextMessage()
     {
+        npc.Stop();
         activeMessage++;
         activeAudio++;
         if (activeMessage < currentMessages.Length)

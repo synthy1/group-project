@@ -18,7 +18,7 @@ public class Tv_lvl3_bk : Interactable
     {
         if (lvlBool.lvl3Col == true)
         {
-
+            tvScreen.GetComponent<MeshRenderer>().material = tvScreenMat;
         }
     }
     public override void OnFocus()
