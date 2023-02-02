@@ -17,9 +17,17 @@ public class ButtonManager : MonoBehaviour
     {
         //oppen up second ui hidden at start with options on it
     }
-    public void credits()
+    public void Credits()
     {
         //open credits scene
+    }
+    public void EndingOne()
+    {
+        //open ED1 scene
+    }
+    public void EndingTwo()
+    {
+        //open ED2 scene
     }
 
 }
