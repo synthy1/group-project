@@ -19,7 +19,7 @@ public class Tv_lvl3 : Interactable
 
     public override void OnInteract()
     {
-        if (lvlBool.lvl2Cmp == true)
+        if (lvlBool.lvl2Cmp == true && lvlBool.lvl3Cmp == false)
         {
             player.transform.position = tpLocation.transform.position;
             player.transform.rotation = tpLocation.transform.rotation;
