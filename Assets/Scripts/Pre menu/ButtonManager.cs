@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
+    Movement player;
+
+    private void Start()
+    {
+        player = GameObject.Find("Player").GetComponent<Movement>();
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -20,6 +27,11 @@ public class ButtonManager : MonoBehaviour
     public void Credits()
     {
         //open credits scene
+    }
+
+    public void UnPause()
+    {
+        player.UnPause();
     }
     public void EndingOne()
     {

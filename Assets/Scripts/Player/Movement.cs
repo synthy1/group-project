@@ -35,6 +35,7 @@ public class Movement : MonoBehaviour
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode crouchKey = KeyCode.LeftControl;
     public KeyCode interact = KeyCode.E;
+    public KeyCode pause = KeyCode.Escape;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -62,7 +63,11 @@ public class Movement : MonoBehaviour
     float horizontalInput;
     float verticalInput;
 
+    public bool isPaused = false;
+
     Vector3 moveDirection;
+
+    public GameObject pauseMenu;
 
     Rigidbody rb;
 
@@ -148,6 +153,9 @@ public class Movement : MonoBehaviour
         {
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
         }
+
+        Pause();
+        UnPause();
     }
 
     private void StateHandler()
@@ -268,6 +276,28 @@ public class Movement : MonoBehaviour
         readyToJump = true;
 
         exitingSlope = false;
+    }
+
+    private void Pause()
+    {
+        if (Input.GetKeyDown(pause) && !isPaused)
+        {
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+    }
+
+    public void UnPause()
+    {
+        if (Input.GetKeyDown(pause) && isPaused)
+        {
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1f;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 
     public bool OnSlope()
