@@ -86,7 +86,6 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         readyToJump = true;
-
         startYScale = transform.localScale.y;
     }
 
@@ -154,8 +153,15 @@ public class Movement : MonoBehaviour
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
         }
 
-        Pause();
-        UnPause();
+        if (Input.GetKeyDown(pause) && !isPaused)
+        {
+            Pause();
+        }
+
+        if (Input.GetKeyDown(pause) && isPaused)
+        {
+            UnPause();
+        }
     }
 
     private void StateHandler()
@@ -280,24 +286,20 @@ public class Movement : MonoBehaviour
 
     private void Pause()
     {
-        if (Input.GetKeyDown(pause) && !isPaused)
-        {
-            pauseMenu.SetActive(true);
-            Time.timeScale = 0f;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
+        AudioListener.pause = true;
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void UnPause()
     {
-        if (Input.GetKeyDown(pause) && isPaused)
-        {
-            pauseMenu.SetActive(false);
-            Time.timeScale = 1f;
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
+        AudioListener.pause = false;
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public bool OnSlope()

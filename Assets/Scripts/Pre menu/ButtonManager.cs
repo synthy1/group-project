@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ButtonManager : MonoBehaviour
 {
     Movement player;
+    public GameObject poemScreen;
 
     private void Start()
     {
@@ -27,6 +28,16 @@ public class ButtonManager : MonoBehaviour
     public void Credits()
     {
         //open credits scene
+    }
+
+    public void OpenClue()
+    {
+        poemScreen.SetActive(true);
+    }
+
+    public void closePoem()
+    {
+        poemScreen.SetActive(false);
     }
 
     public void UnPause()
