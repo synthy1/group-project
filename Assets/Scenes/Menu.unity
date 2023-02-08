@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.15376449, g: 0.19051743, b: 0.25215626, a: 1}
+  m_IndirectSpecularColor: {r: 0.057663284, g: 0.040814858, b: 0.037666284, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -875,6 +875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5010cd05d3792cc47a3e4753eec7bca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poemScreen: {fileID: 0}
 --- !u!4 &1041414266
 Transform:
   m_ObjectHideFlags: 0
@@ -1351,7 +1352,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1041414265}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: credits
+        m_MethodName: Credits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

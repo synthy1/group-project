@@ -27,7 +27,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void Credits()
     {
-        //open credits scene
+        SceneManager.LoadScene(4);
     }
 
     public void OpenClue()
