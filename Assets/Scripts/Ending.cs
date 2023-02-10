@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ending : MonoBehaviour
 {
     public GameObject endingUi;
+    public static bool isActive = false;
 
     private void Start()
     {
@@ -15,6 +16,7 @@ public class Ending : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            isActive = true;
             endingUi.SetActive(true);
 
             Time.timeScale = 0;

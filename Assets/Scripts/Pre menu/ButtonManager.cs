@@ -46,11 +46,11 @@ public class ButtonManager : MonoBehaviour
     }
     public void EndingOne()
     {
-        //open ED1 scene
+        SceneManager.LoadScene(4);
     }
     public void EndingTwo()
     {
-        //open ED2 scene
+        SceneManager.LoadScene(4);
     }
 
 }

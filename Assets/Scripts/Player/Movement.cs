@@ -153,7 +153,7 @@ public class Movement : MonoBehaviour
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
         }
 
-        if (Input.GetKeyDown(pause) && !isPaused)
+        if (Input.GetKeyDown(pause) && !isPaused && Dialog_manager.isActive == false && Ending.isActive == false)
         {
             Pause();
         }
